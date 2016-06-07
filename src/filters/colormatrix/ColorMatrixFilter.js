@@ -1,6 +1,5 @@
 var core = require('../../core');
 // @see https://github.com/substack/brfs/issues/25
-var glslify  = require('glslify');
 
 /**
  * The ColorMatrixFilter class lets you apply a 5x4 matrix transformation on the RGBA
@@ -21,9 +20,9 @@ function ColorMatrixFilter()
 {
     core.Filter.call(this,
         // vertex shader
-        glslify('./colorMatrix.vert'),
+        require('./colorMatrix.vert'),
         // fragment shader
-        glslify('./colorMatrix.frag')
+        require('./colorMatrix.frag')
     );
 
     this.uniforms.m = [

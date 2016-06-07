@@ -1,5 +1,4 @@
 var Shader = require('../../core/Shader');
-var glslify  = require('glslify');
 
 /**
  * @class
@@ -11,8 +10,8 @@ function TilingShader(gl)
 {
     Shader.call(this,
         gl,
-        glslify('./tilingSprite.vert'),
-        glslify('./tilingSprite.frag')
+        require('./tilingSprite.vert'),
+        require('./tilingSprite.frag')
     );
 }
 

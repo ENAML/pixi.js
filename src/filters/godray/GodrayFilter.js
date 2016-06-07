@@ -1,5 +1,4 @@
 var core = require('../../core');
-var glslify  = require('glslify');
 
 /**
  * This filter applies a twist effect making display objects appear twisted in the given direction.
@@ -13,15 +12,15 @@ function GodrayFilter()
     core.Filter.call(this,
         // vertex shader
 
-        glslify('./godray.vert', 'utf8'),
+        require('./godray.vert'),
         // fragment shader
-        glslify('./godray.frag', 'utf8')
+        require('./godray.frag')
     );
 
     this.uniforms.exposure = 0.0034;
     this.uniforms.decay = 1.0;
     this.uniforms.density = 0.84;
-    this.uniforms.weight = 5.65;  
+    this.uniforms.weight = 5.65;
 
     this.uniforms.lightPositionOnScreen[0] = 0.5;///0.5;
     this.uniforms.lightPositionOnScreen[1] = 0.5;//;

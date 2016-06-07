@@ -1,5 +1,4 @@
 var Shader = require('../../Shader');
-var glslify  = require('glslify');
 
 var fragTemplate = [
     'varying vec2 vTextureCoord;',
@@ -16,7 +15,7 @@ var fragTemplate = [
 
 function generateMultiTextureShader(gl, maxTextures)
 {
-    var vertexSrc = glslify('./texture.vert');
+    var vertexSrc = require('./texture.vert');
     var fragmentSrc = fragTemplate;
 
     fragmentSrc = fragmentSrc.replace(/%count%/gi, maxTextures);

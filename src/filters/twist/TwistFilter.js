@@ -1,5 +1,4 @@
 var core = require('../../core');
-var glslify  = require('glslify');
 
 /**
  * This filter applies a twist effect making display objects appear twisted in the given direction.
@@ -13,9 +12,9 @@ function TwistFilter()
     core.Filter.call(this,
         // vertex shader
 
-        glslify('./twist.vert', 'utf8'),
+        require('./twist.vert'),
         // fragment shader
-        glslify('./twist.frag', 'utf8')
+        require('./twist.frag')
     );
 
     this.uniforms.radius = 400;
